@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- protect -->
+<div class="protect">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="titlepage text_align_center">
+                    <h2>What we offer</h2>
+                    <p>Expert restoration shop for vintage vehicles. We breathe life into classic cars, preserving their timeless charm and legacy.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="protect_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="owl-carousel owl-theme">
+                        {% for offer in services %}
+                        <div class="item">
+                            <div class="protect_box text_align_center">
+                                <div class="desktop">
+                                    <i><img class="offers_image" src="{{ offer.offer_image_url }}" alt="#"/></i>
+                                    <h3>{{ offer.offer }}</h3>
+                                    <span>{{ offer.description }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+          <div class="about">
+         <div class="container_width">
+            <div class="row d_flex">
+                   <div class="col-md-7">
+                  <div class="titlepage text_align_left">
+                     <h2>Trust Us</h2>
+                     <p>At our restoration shop, no two projects are alike.
+                         We understand that each vehicle carries a unique story and requirements.
+                         Therefore, our pricing is tailored to the specific needs and desired enhancements of your cherished vehicle.
+                         During an initial consultation, we discuss the scope of work, consider your preferences, and provide a transparent and personalized quote.
+
+                         We take pride in sourcing authentic vintage parts to maintain the genuine character of your retro car.
+                         Our attention to detail extends beyond aesthetics; we ensure that every component functions flawlessly and stands the test of time.
+
+                         Join us on this extraordinary journey as we celebrate the craftsmanship and elegance of classic automobiles.
+                         Trust us with your treasured possession, and together, let's revive the allure and magnificence of retro cars that transcend generations.
+                         Embrace the spirit of bygone eras as we breathe new life into your beloved vintage ride.
+
+                         See Our Locations
+                     </p>
+                     <a class="read_more" href="{% url 'locations page' %}">Locations</a>
+                  </div>
+               </div>
+               <div class="col-md-5">
+                  <div class="about_img text_align_center">
+                     <figure><img class="service_image" src="{% static 'images/images.jpg' %}" alt="#"/></figure>
+                  </div>
+               </div>
+            </div>
+         </div>
+       </div>
+<!-- end protect -->
+{% endblock %}

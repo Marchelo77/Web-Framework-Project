@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+      <div class="cases">
+         <div class="container-fluid">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="titlepage text_align_center ">
+                     <h2>Delete your car</h2>
+                  </div>
+               </div>
+            </div>
+            <div class="row d_flex">
+               <div class=" col-md-4">
+                  <div class="latest text_align_center">
+                      <form action="{% url 'car delete' pk=object.pk %}" method="post">
+
+                             {% csrf_token %}
+
+                          <h3 class="delete-car">Are you shore you want to delete your car</h3>
+
+                         <button type="submit" class="car_details">Delete</button>
+
+                      </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+{% endblock %}

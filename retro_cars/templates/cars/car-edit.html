@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+      <div class="cases">
+         <div class="container-fluid">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="titlepage text_align_center ">
+                     <h2>Edit Your Car</h2>
+                  </div>
+               </div>
+            </div>
+            <div class="row d_flex">
+               <div class=" col-md-4">
+                  <div class="latest text_align_center">
+                      <form action="{% url 'car edit' pk=object.pk %}" method="post">
+
+                             {% csrf_token %}
+                        <div class="car-create">
+
+                                {{ form.error }}
+                            {{ form.as_p }}
+
+                        </div>
+
+                         <button type="submit" class="car_details">Edit</button>
+
+                      </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+{% endblock %}

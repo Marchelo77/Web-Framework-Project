@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="doctors">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <div class="titlepage text_align_center">
+               <h2>What clients say..</h2>
+               <div class="reviews">
+                  <form action="{% url 'review page' %}" method="post">
+                     {% csrf_token %}
+                            {% for field in form %}
+                                    <div>
+                                        {{ field.label_tag }}
+                                        {{ field }}
+                                        {% if field.errors %}
+                                            <ul>
+                                                {% for error in field.errors %}
+                                                    <li>{{ error }}</li>
+                                                {% endfor %}
+                                            </ul>
+                                        {% endif %}
+                                    </div>
+                                {% endfor %}
+                      <button type="submit">Post</button>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+            <div class="row d_flex">
+            {% for rev in reviews %}
+               <div class=" col-md-6">
+                     <div id="ho_efcet" class="reader text_align_center">
+                        {% if rev.user.profile_picture %}
+                    <i><img class="review_image" src="{{ rev.user.profile_picture }}" alt="#"/></i>
+                    {% else %}
+                    <img class="review_image" src="{% static 'images/default-profile.png' %}" alt='#'/>
+                    {% endif %}
+                        <h3>{{ rev.user.username }}</h3>
+                         <p>{{ rev.comment }}</p>
+                         <p>{{ rev.date }}</p>
+                        <span><img src="{% static 'images/do.png' %}" alt="#"/></span>
+
+                     <div class="del-com">
+{#                     <a href="#" class="delete-review-btn">#}
+{#                            Edit Comment#}
+{#                        </a>#}
+                         {% if rev.user == user %}
+                         <form action="{% url 'review delete' pk=rev.pk %}" method="post">
+                             {% csrf_token %}
+                            <button type="submit" class="delete-review-btn">
+                                Delete Comment
+                            </button>
+                         </form>
+                         {% endif %}
+                     </div>
+
+                     </div>
+                  </div>
+                {% endfor %}
+               </div>
+         </div>
+      </div>
+
+{% endblock %}

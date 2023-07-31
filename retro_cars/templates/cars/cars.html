@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- cases -->
+      <div class="cases">
+         <div class="container-fluid">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="titlepage text_align_center ">
+                     <h2>Retro Cars</h2>
+                     <p>Calling all retro car owners! Share your beloved vintage rides with fellow enthusiasts today.</p>
+                      <a class="read_more" href="{% url 'car create' %}">Share your car</a>
+                  </div>
+               </div>
+            </div>
+            <div class="row d_flex">
+                {% for car in cars %}
+               <div class=" col-md-4">
+                  <div class="latest text_align_center">
+                     <figure><img class="car-image" src="{{ car.car_image }}" alt="#"/></figure>
+                     <div class="nostrud">
+                        <h3 class="car-model">{{ car.model }}</h3>
+                        <p>{{ car.description|truncatechars:150 }}</p>
+                         <div class="car_desc">
+                         <p class="year">Year: {{ car.year }}</p>
+                         <p class="year">Posted by: {{ car.user.username }}</p></div>
+                         <a class="car-edit" href="{% url 'car details' pk=car.pk %}">Details</a>
+                     </div>
+                  </div>
+               </div>
+                {% endfor %}
+            </div>
+         </div>
+      </div>
+      <!-- end cases -->
+{% endblock %}

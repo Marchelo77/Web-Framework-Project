@@ -1,0 +1,45 @@
+ {% load static %}
+      <!-- top -->
+                    <!-- header -->
+<header class="header-area">
+{#    <div class="left">#}
+{#        <a href="{% url 'home_page' %}"><i class="fa fa-laptop" aria-hidden="true"></i></a>#}
+{#    </div>#}
+{#    <div class="right">#}
+{#        <a href="{% url 'profile page' %}"><i class="fa fa-user" aria-hidden="true"></i></a>#}
+{#    </div>#}
+    <div class="container">
+        <div class="row d_flex">
+{#            <div class="col-sm-3 logo_sm">#}
+{#                <div class="logo">#}
+{#                    <a href="{% url 'home_page' %}"></a>#}
+{#                </div>#}
+{#            </div>#}
+            <div class="col-lg-10 offset-lg-1 col-md-12 col-sm-9">
+                <div class="navbar-area">
+                    <nav class="site-navbar">
+                        <ul>
+                            <li><a class="active" href="{% url 'home_page' %}">home</a></li>
+                            <li><a href="{% url 'about page' %}">about</a></li>
+                            <li><a href="{% url 'restoration shop' %}">services</a></li>
+                            <li><a href="{% url 'car page' %}">cars</a></li>
+                            <li><a href="{% url 'home_page' %}"><img width="70px" src="{% static 'images/rcar.png' %}" alt="img1"></a></li>
+                            <li><a href="{% url 'gallery page' %}">gallery</a></li>
+                            <li><a href="{% url 'review page' %}">Comment</a></li>
+                            <li><a href="{% url 'contact page' %}">Contact </a></li>
+                            {% if request.user.is_authenticated %}
+                            <li><a href="{% url 'profile page' pk=request.user.pk %}">profile</a></li>
+                            {% else %}
+                            <li><a href="{% url 'profile login' %}">Login/Register</a></li>
+                            {% endif %}
+                        </ul>
+                        <button class="nav-toggler">
+                            <span></span>
+                        </button>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- end header -->

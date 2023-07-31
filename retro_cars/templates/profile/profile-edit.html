@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="cases">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="titlepage text_align_center ">
+                        <h2>Edit Profile</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="login-box"></div>
+            <div class="edit-user">
+
+                <form action="{% url 'profile edit' pk=object.pk %}" method="post">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        <p> {{ field.errors }} </p>
+                        <div>
+                            <label>{{ field.label }}</label>
+
+                            {% if not field.label == "Gender:" %}
+                                {{ field }}
+                            {% else %}
+                                <div>
+                                    <div class="gender-div">Gender</div>
+                                    <div class="gender-div-input">
+
+                                        {% for type, value in form.fields.gender.choices %}
+                                            <label>
+                                                <input type="radio" value="{{ value }}"
+                                                       name="gender"
+                                                        {% if form.gender.value == value %}
+                                                       checked
+                                                        {% endif %}/>
+                                                <span>{{ value }}</span>
+                                            </label>
+                                        {% endfor %}
+
+                                    </div>
+                                </div>
+                            {% endif %}
+
+                        </div>
+                        <br>
+                    {% endfor %}
+
+
+
+                    <button type="submit" class="car_details">Edit</button>
+
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

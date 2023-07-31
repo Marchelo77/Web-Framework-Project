@@ -1,0 +1,77 @@
+{% load static %}
+<footer>
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 col-md-6 col-sm-6">
+                    <div class="hedingh3 text_align_left">
+                        <h3>Resources</h3>
+                        <ul class="menu_footer">
+                            <li><a href="{% url 'home_page' %}">Home</a>
+                            <li>
+                            <li><a href="{% url 'about page' %}">About Us</a>
+                            <li>
+                            <li><a href="{% url 'car page' %}">Retro Cars</a>
+                            <li>
+                            <li><a href="{% url 'gallery page' %}">Gallery</a>
+                            <li>
+                            <li><a href="{% url 'review page' %}">Comments</a>
+                            <li>
+                            <li><a href="{% url 'restoration shop' %}">Services</a>
+                            <li>
+                        </ul>
+
+
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="hedingh3 text_align_left">
+                        <h3>About</h3>
+                        <p>Welcome to our retro car sanctuary, where we breathe new life into classic beauties.
+                            With a passion for restoration, we lovingly revive vintage vehicles to their former glory.
+                            Explore our collection of meticulously renovated retro cars and share in the joy of preserving automotive history.</p>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="hedingh3  text_align_left">
+                        <h3>Contact Us</h3>
+                        <ul class="top_infomation">
+                            <li><i class="fa fa-map-marker" aria-hidden="true"></i>
+                                <a href="{% url 'locations page' %}">Check our locations</a>
+                            </li>
+                            <li><i class="fa fa-phone" aria-hidden="true"></i>
+                                Call : +088 915 2487
+                            </li>
+                            <li><i class="fa fa-envelope" aria-hidden="true"></i>
+                                Email : sof.retro.car@gmail.com
+                            </li>
+                        </ul>
+
+
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="hedingh3 text_align_left">
+                        <h3>Country</h3>
+                        <div class="map">
+                            <img src="{% static 'images/bulgarian-map.avif' %}" alt="#"/>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 offset-md-2">
+                        <p>© 2023 All Rights Reserved.</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

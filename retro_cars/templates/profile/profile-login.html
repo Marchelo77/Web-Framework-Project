@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+      <div class="cases">
+         <div class="container-fluid">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="titlepage text_align_center ">
+                     <h2>LogIn</h2>
+                  </div>
+               </div>
+            </div>
+
+                    <div class="login-box"></div>
+                     <div class="login">
+                        <form action="{% url 'profile login' %}" method="post">
+
+                            {% csrf_token %}
+
+                            {% if form.errors %}
+                        <p class="error-message">Invalid username or password. Please try again.</p>
+                    {% endif %}
+
+                                {{ form.username.label_tag }}
+                                {{ form.username }}
+                                {{ form.password.label_tag }}
+                                {{ form.password }}
+
+
+                     <input type="hidden" name="next" value="{{ next }}">
+
+                    <button type="submit" class="car_details">Login</button>
+
+                        </form>
+                     </div>
+
+
+             <div class="row d_flex">
+               <div class=" col-md-4">
+                  <div class="latest text_align_center">
+                      <form action="">
+                     <div class="my_nostrodus">
+                         <h3 class="no-profile">You do not have a profile?</h3>
+                         <button class="car_details"><a class="register-button" href="{% url 'profile register' %}?next={{ next }}">Register</a></button>
+                     </div>
+                      </form>
+                  </div>
+               </div>
+            </div>
+
+         </div>
+      </div>
+{% endblock %}

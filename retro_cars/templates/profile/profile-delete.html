@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="profile">
+    <div class="my_container">
+        <div class="my_row">
+            <div class="col-md-12">
+                <div class="titlepage text_align_center ">
+                    <h2>Are you sure you want to delete your profile</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row my_flex">
+            <div class=" col-md-6">
+                <div id="ho_efcet" class="my_reader text_align_center">
+                <div class="delete_div">
+
+                    <h2 class="delete_head">Every thing you have posted will be deleted too!</h2>
+
+                    <form method="post" action="{% url 'profile delete' pk=object.pk %}">
+
+                        {% csrf_token %}
+
+                        <div class="delete-div-container">
+
+                    <button type="submit" class="delete-btn">Yes</button>
+                    <a class="delete-btn" href="javascript:history.back()">No</a>
+
+                </div>
+
+               </form>
+
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

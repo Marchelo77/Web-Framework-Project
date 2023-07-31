@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#{% include 'common/head.html' %}#}
+{#   <!-- body -->#}
+{#   <body class="main-layout inner_page">#}
+{#      <!-- loader  -->#}
+{#{% include 'common/loader.html' %}#}
+{#      <!-- end loader -->#}
+{#      <!-- top -->#}
+{#      <!-- header -->#}
+{#{% include 'common/header.html' %}#}
+{#      <!-- end header -->#}
+{#      <!-- end banner -->#}
+      {% block content %}
+     <!-- coronata -->
+      <div class="coronata">
+         <div class="container">
+             <div class="gallery_div">
+             <h1 class="gallery_zaglavie">Gallery</h1>
+             <h2 class="gallery_heading">Welcome to our gallery. Enjoy the precious vintage cars!</h2></div>
+            <div class="row d_flex grid">
+                {% for photo in gallery %}
+               <div class="col-md-5 oder1">
+                  <div class="titlepage text_align_left">
+                     <figure><img class="gallery_image" src="{{ photo.image_url }}" alt="#"/></figure>
+                  </div>
+               </div>
+                {% endfor %}
+            </div>
+         </div>
+      </div>
+      <!-- end coronata -->
+      {% endblock %}
+      <!--  footer -->
+{#{% include 'common/footer.html' %}#}
+{#      <!-- end footer -->#}
+{#      <!-- Javascript files-->#}
+{#      <script src="../static/js/jquery.min.js"></script>#}
+{#      <script src="../static/js/bootstrap.bundle.min.js"></script>#}
+{#      <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>#}
+{#      <script src="../static/js/owl.carousel.min.js"></script>#}
+{#      <script src="../static/js/custom.js"></script>#}
+{#   </body>#}
+{#</html>#}

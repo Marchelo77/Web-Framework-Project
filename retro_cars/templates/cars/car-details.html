@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- cases -->
+      <div class="cases">
+         <div class="container-fluid">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="titlepage text_align_center ">
+                     <h2>{{ car.user.username }} Car</h2>
+                  </div>
+               </div>
+            </div>
+            <div class="row d_flex">
+               <div class=" col-md-4">
+                  <div class="latest text_align_center">
+                     <figure><img class="car-image" src="{{ car.car_image }}" alt="#"/></figure>
+                     <div class="nostrud">
+                        <h3 class="car-model">{{ car.model }}</h3>
+                        <p>{{ car.description }}</p>
+                         <div class="car_desc">
+                         <p class="year">Year: {{ car.year }}</p>
+                         <p class="year">Posted by: {{ car.user.username }}</p></div>
+                         {% if is_owner %}
+                            <a class="car-edit" href="{% url 'car edit' pk=car.pk %}">Edit</a>
+                         <a class="car-edit del" href="{% url 'car delete' pk=car.pk %}">Delete</a>
+                         {% endif %}
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- end cases -->
+{% endblock %}

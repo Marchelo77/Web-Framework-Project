@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+      {% block content %}
+      <!-- about -->
+      <div class="about">
+         <div class="container_width">
+            <div class="row d_flex">
+                {% for event in events %}
+                   <div class="col-md-7">
+                  <div class="titlepage text_align_left">
+                     <h2>{{ event.event_name }}</h2>
+                     <p>{{ event.description }}
+                     </p>
+                      <h4 class="event_loc"><i class="fa fa-map-marker" aria-hidden="true"></i>     {{ event.event_location }}</h4>
+                      <span class="span_date">{{ event.event_date }}</span>
+                  </div>
+               </div>
+               <div class="col-md-5">
+                  <div class="about_img text_align_center">
+                     <figure><img class="service_image" src="{{ event.image_url }}" alt="#"/></figure>
+                  </div>
+               </div>
+                {% endfor %}
+            </div>
+         </div>
+      </div>
+      <!-- end about -->
+      {% endblock %}

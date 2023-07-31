@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#{% include 'common/head.html' %}#}
+{#   <!-- body -->#}
+{#   <body class="main-layout inner_page">#}
+{#      <!-- loader  -->#}
+{#{% include 'common/loader.html' %}#}
+{#      <!-- end loader -->#}
+{#      <!-- top -->#}
+{#                    <!-- header -->#}
+{#{% include 'common/header.html' %}#}
+{#      <!-- end header -->#}
+{% block content %}
+      <!-- contact -->
+     <div class="contact">
+         <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                     <div class="titlepage text_align_left">
+                        <h2>Contact Us</h2>
+                     </div>
+                  </div>
+            </div>
+            <div class="row">
+               <div class="col-md-6">
+                  <form id="request" class="main_form">
+                     <div class="row">
+                        <div class="col-md-12 ">
+                           <input class="contactus" placeholder="Full Name" type="type" name=" Name"> 
+                        </div>
+                        <div class="col-md-12">
+                           <input class="contactus" placeholder="Phone" type="type" name="Phone Number">                          
+                        </div>
+                        <div class="col-md-12">
+                           <input class="contactus" placeholder="Email" type="type" name="Email"> 
+                        </div>
+                        <div class="col-md-12">
+                           <textarea class="textarea" placeholder="Message" type="type" Message="Name"></textarea>
+                        </div>
+                        <div class="col-md-12">
+                           <button class="send_btn">Send Now</button>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+                <div class="col-md-6">
+                  <div class="map-responsive">
+                      <i><img src="{% static '/images/78928E72-5AFB-9620-70BF-7AB0275C0F7F.jpg' %}" alt="#"/></i>
+                  </div>
+               </div>
+            </div>
+
+         </div>
+      </div>
+      <!-- end contact -->
+{% endblock %}
+      <!--  footer -->
+{#{% include 'common/footer.html' %}#}
+{#      <!-- end footer -->#}
+{#      <!-- Javascript files-->#}
+{#      <script src="../static/js/jquery.min.js"></script>#}
+{#      <script src="../static/js/bootstrap.bundle.min.js"></script>#}
+{#      <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>#}
+{#      <script src="../static/js/owl.carousel.min.js"></script>#}
+{#      <script src="../static/js/custom.js"></script>#}
+{#   </body>#}
+{#</html>#}

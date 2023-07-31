@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+      <div class="cases">
+         <div class="container-fluid">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="titlepage text_align_center ">
+                     <h2>Register</h2>
+                  </div>
+               </div>
+            </div>
+
+                     <div class="login-box"></div>
+                     <div class="login">
+                        <form action="{% url 'profile register' %}" method="post">
+                            {% csrf_token %}
+
+{#                            <label for="{{ form.username.id_for_label }}">Username:</label>#}
+                            {{ form.username.errors }}
+                            {{ form.username }}
+
+{#                            <label for="{{ form.email.id_for_label }}">Email:</label>#}
+                            {{ form.email.errors }}
+                            {{ form.email }}
+
+{#                            <label for="{{ form.password1.id_for_label }}">Password:</label>#}
+                            {{ form.password1.errors }}
+                            {{ form.password1 }}
+
+{#                           <label for="{{ form.password2.id_for_label }}">Confirm Password:</label>#}
+                            {{ form.password2.errors }}
+                            {{ form.password2 }}
+
+                        <input type="hidden" name="next" value="{{ next }}">
+                         <button type="submit" class="car_details">Register</button>
+
+                        </form>
+                     </div>
+
+                          <div class="row d_flex">
+               <div class=" col-md-4">
+                  <div class="latest text_align_center">
+                      <form action="">
+                     <div class="my_nostrodus">
+                         <h3 class="no-profile">You have an account?</h3>
+                         <button class="car_details"><a class="register-button" href="{% url 'profile login' %}">Login</a></button>
+                     </div>
+                      </form>
+                  </div>
+               </div>
+            </div>
+
+         </div>
+      </div>
+{% endblock %}

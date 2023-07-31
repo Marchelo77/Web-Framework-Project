@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="full_bg">
+    <!-- header inner -->
+    <div class="section">
+        <!-- carousel code -->
+        <div id="banner1" class="carousel slide slider_main">
+{#            <ol class="carousel-indicators ">#}
+{#                <li data-target="#banner1" data-slide-to="0" class="indicator-li-1">01</li>#}
+{#                <li data-target="#banner1" data-slide-to="1" class="">02</li>#}
+{#                <li data-target="#banner1" data-slide-to="2" class="active">03</li>#}
+{#            </ol>#}
+            <div class="carousel-inner">
+                <!-- first slide -->
+                <div class="carousel-item active">
+                    <div class="carousel-caption cuplle">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="photog">
+                                        <h1>Retro Cars<br>Bulgaria</h1>
+{#                                        <a class="read_more" href="javascript:void(0)">Read More</a>#}
+                                        <a class="read_more" href="{% url 'about page' %}">About Us</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- controls -->
+
+        </div>
+    </div>
+</div>
+<!-- end banner -->
+<!-- about -->
+<div class="about">
+    <div class="container_width">
+        <div class="row d_flex">
+            <div class="col-md-7">
+                <div class="titlepage text_align_left">
+                    <h2>About US </h2>
+                    <p>Welcome to our website. Here you can share your retro car with us and
+                        check our services to make your retro car look perfect!
+                    </p>
+                    <a class="read_more" href="{% url 'about page' %}">More About Us</a>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="about_img text_align_center">
+                    <figure><img src="/static/images/vintage-classic-car-illustration_232942-49.avif" alt="#"/></figure>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- end about -->
+<!-- protect -->
+<div class="protect">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="titlepage text_align_center">
+                    <h2>What our services offer</h2>
+                    <p>Our job is to make your retro car beautiful, we offer renovating from inside,
+                        outside and changing some parts if needed.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="protect_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="owl-carousel owl-theme">
+                        {% for offer in services %}
+                        <div class="item">
+                            <div class="protect_box text_align_center">
+                                <div class="desktop">
+                                    <i><img src="{{ offer.offer_image_url }}" alt="#"/></i>
+                                    <h3>{{ offer.offer }}</h3>
+                                    <span>{{ offer.description }}</span>
+                                </div>
+                                <a class="read_more" href="{% url 'restoration shop' %}">Read More</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end protect -->
+<!-- doctors -->
+<div class="doctors">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="titlepage text_align_center ">
+                    <h2>What clients say..</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row d_flex">
+            {% for review in reviews %}
+            <div class=" col-md-6">
+                <div id="ho_efcet" class="reader text_align_center">
+                    {% if profile.profile_picture %}
+                    <i><img class="review_image" src="{{ profile.profile_picture }}" alt="profile-image"/></i>
+                    {% else %}
+                    <img class="review_image" src="{% static 'images/default-profile.png' %}" alt='profile-image'/>
+                    {% endif %}
+                    <h3>{{ profile.username }}</h3>
+                    <p>{{ review.comment }}</p>
+                    <p>{{ review.date }}</p>
+                    <span><img src="{% static 'images/do.png' %}" alt="#"/></span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<!-- end cases -->
+{% endblock %}
+

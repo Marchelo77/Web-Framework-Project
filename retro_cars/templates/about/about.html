@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#{% include 'common/head.html' %}#}
+{#   <!-- body -->#}
+{#   <body class="main-layout inner_page">#}
+{#      <!-- loader  -->#}
+{#{% include 'common/loader.html' %}#}
+{#      <!-- end loader -->#}
+{#      <!-- top -->#}
+{#       <!-- header -->#}
+{#{% include 'common/header.html' %}#}
+{#      <!-- end header -->#}
+{#      {% block content %}#}
+
+{% block content %}
+    <!-- about -->
+      <div class="about">
+         <div class="container_width">
+            <div class="row d_flex">
+                   <div class="col-md-7">
+                  <div class="titlepage text_align_left">
+                     <h2>About Retro Cars </h2>
+                     <p>Welcome to our retro car sanctuary, where we breathe new life into classic beauties.
+                            With a passion for restoration, we lovingly revive vintage vehicles to their former glory.
+                            Explore our collection of meticulously renovated retro cars and share in the joy of preserving automotive history.
+                         Step into a world where nostalgia meets craftsmanship.
+                         At our retro car haven, we meticulously restore and preserve vintage automobiles, ensuring their timeless allure endures.
+                         Immerse yourself in the stories behind each car as we proudly share our collection with fellow enthusiasts and admirers of automotive history.
+                         Join us on this extraordinary journey.
+                     </p>
+{#                     <a class="read_more" href="about.html">About More</a>#}
+                  </div>
+               </div>
+               <div class="col-md-5">
+                  <div class="about_img text_align_center">
+                     <figure><img src="{% static '/images/vintage-classic-car-illustration_232942-49.avif' %}" alt="#"/></figure>
+                  </div>
+               </div>
+
+            </div>
+             <div class="coronata">
+         <div class="container">
+            <h2 class="my_heading_for_gallery">See it yourself</h2>
+            <div class="row d_flex grid">
+                {% for photo in photos %}
+               <div class="col-md-5 oder1">
+                  <div class="titlepage text_align_left">
+                     <figure><img class="gallery_image" src="{{ photo.image_url }}" alt="#"/></figure>
+                  </div>
+               </div>
+                {% endfor %}
+
+            </div>
+
+         </div>
+      </div>
+             <div class="my_div_gallery"><a class="read_more" href="{% url 'gallery page' %}">Gallery</a></div>
+             <div class="my_div_for_about">
+        <div class="row d_flex">
+                   <div class="col-md-7">
+                  <div class="titlepage text_align_left">
+                     <h2>Events</h2>
+                     <p>Discover our comprehensive range of services catering to retro car enthusiasts and the vibrant world of vintage automotive events.
+                         From meticulous restoration and customization to expert maintenance and repair, we offer a full spectrum of services tailored to your retro car's needs.
+                         Additionally, we curate and organize thrilling retro car events, where like-minded enthusiasts gather to celebrate the timeless beauty of classic automobiles.
+                         Immerse yourself in the captivating world of retro cars and entrust your passion to our dedicated team of experts.
+                     </p>
+                      <a class="read_more" href="{% url 'event page' %}">Events</a>
+                  </div>
+               </div>
+            <div class="col-md-5">
+                  <div class="about_img text_align_center">
+                     <figure><img class="event_image" src="{% static 'images/atrakcje-retro-motor-show-2020.jpg' %}" alt="#"/></figure>
+                  </div>
+               </div>
+            </div></div>
+
+         </div>
+      </div>
+<!-- end about -->
+{% endblock %}
+{#{% include 'common/footer.html' %}#}
+{#      <script src="/static/js/jquery.min.js"></script>#}
+{#      <script src="/static/js/bootstrap.bundle.min.js"></script>#}
+{#      <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>#}
+{#      <script src="/static/js/owl.carousel.min.js"></script>#}
+{#      <script src="/static/js/custom.js"></script>#}
+{#   </body>#}
+{#</html>#}
