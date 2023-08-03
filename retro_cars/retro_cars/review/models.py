@@ -8,7 +8,9 @@ UserModel = get_user_model()
 
 
 class Review(models.Model):
-    comment = models.TextField(max_length=300,
+    COMMENT_MAX_LENGTH = 300
+
+    comment = models.TextField(max_length=COMMENT_MAX_LENGTH,
                                validators=[
                                    MinLengthValidator(2)
                                ])
