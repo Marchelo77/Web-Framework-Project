@@ -276,7 +276,6 @@ button {
      display: flex;
      align-items: center;
      flex-wrap: wrap;
-    justify-content: space-evenly;
 }
 
 .read_more {
@@ -826,6 +825,7 @@ button {
     background: #fff;
     padding: 0 30px 0 30px;
    padding-top: 70px;
+    margin-left: -100px;
 
 
 }
@@ -1385,7 +1385,7 @@ padding-bottom: 40px;}
 }
 
 .my_container{
-    width: 1850px;
+    /*width: 1850px;*/
 }
 
 .my_row{
@@ -1415,8 +1415,17 @@ padding-bottom: 40px;}
     border-radius: 4px;
 }
 
-.review_image{
-    width: 20%;
+#review_image{
+    /*width: 180px;*/
+    border: solid 1px #ddd;
+    border-radius: 50%;
+    padding: 5px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 180px;
 }
 
 .service_image{
@@ -1513,7 +1522,7 @@ padding-bottom: 40px;}
 
 
 .login-box{
-    margin-left: 5%;
+
 }
 .login {
     display: block;
@@ -1547,8 +1556,7 @@ padding-bottom: 40px;}
     font-size: 15px;
     background-color: #05254d;
     color: #fff;
-    width: 600%;
-    max-width: 275px;
+    width: 100%;
     text-align: center;
     display: inline-block;
     transition: ease-in all 0.5s;
@@ -1665,3 +1673,16 @@ padding-bottom: 40px;}
     cursor: pointer;
     transition: ease-in all 0.5s;
 }
+
+.image-container{
+    text-align: center;
+    padding: 10px 20px;
+}
+
+.r_flex{
+        display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
