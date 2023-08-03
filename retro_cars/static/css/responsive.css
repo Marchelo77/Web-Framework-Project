@@ -82,8 +82,19 @@ File Name: responsive.css
 
 
 @media (min-width: 768px) and (max-width: 991px) {
+    .cases .titlepage p {
+    margin-left: 10%;
+}
+    .read_more{
+        width: 50%;
+
+    }
+
     .r_flex textarea{
         width: 60%;
+    }
+    .my-row{
+        margin-left: 8%;
     }
    .left, .right {display: none;}
    .site-navbar ul li {padding-right: 32px;}
@@ -137,6 +148,14 @@ File Name: responsive.css
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
+        .cases .titlepage p {
+    width: 50%;
+     margin-left: 25%;
+}
+    .read_more{
+        width: 30%;
+
+    }
                .car-create p label{
         font-size: 14px;
                 width: 90%;
@@ -265,6 +284,14 @@ padding-top: 42px;
 }
 
 @media (max-width: 575px) {
+            .cases .titlepage p {
+    width: 30%;
+     margin-left: 35%;
+}
+    .read_more{
+        width: 20%;
+
+    }
             .car-create p label{
         font-size: 12px;
                 width: 90%;
