@@ -18,12 +18,14 @@ class ProfileViewsTest(TestCase):
         self.logout_url = reverse('profile logout')
         self.edit_url = reverse('profile edit', kwargs={'pk': self.user.pk})
 
-    # def test_profile_details_view(self):
-    #     response = self.test_client.get(self.profile_url)
-    #     self.assertEqual(response.status_code, 200)
-    #     self.assertTemplateUsed(response, 'profile/profile.html')
+    def test_profile_details_view(self):
+        self.test_client.login(username='testuser', password='marchelo123')
+        response = self.test_client.get(self.profile_url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profile/profile.html')
 
     def test_profile_delete_view(self):
+        self.test_client.login(username='testuser', password='marchelo123')
         response = self.test_client.get(reverse('profile delete', kwargs={'pk': self.user.pk}))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'profile/profile-delete.html')
@@ -43,6 +45,7 @@ class ProfileViewsTest(TestCase):
         self.assertTemplateUsed(response, 'profile/profile-create.html')
 
     def test_profile_edit_view(self):
+        self.test_client.login(username='testuser', password='marchelo123')
         response = self.test_client.get(self.edit_url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'profile/profile-edit.html')
