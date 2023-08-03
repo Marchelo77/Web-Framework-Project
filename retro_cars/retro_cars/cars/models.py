@@ -8,15 +8,18 @@ UserModel = get_user_model()
 
 
 class RetroCar(models.Model):
+    CAR_MODEL_MAX_LENGTH = 30
+    CAR_DESCRIPTION_MAX_LENGTH = 400
+
     car_image = models.URLField()
 
-    model = models.CharField(max_length=30,
+    model = models.CharField(max_length=CAR_MODEL_MAX_LENGTH,
                              validators=[
                                  valid_car_model_validator,
                              ])
 
     description = models.TextField(
-        max_length=400,
+        max_length=CAR_DESCRIPTION_MAX_LENGTH,
         validators=[
             MinLengthValidator(10)
         ],
