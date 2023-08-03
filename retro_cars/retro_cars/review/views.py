@@ -1,12 +1,13 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
-from django.urls import reverse, reverse_lazy
-from django.views.generic import TemplateView, DeleteView, FormView
+from django.urls import reverse_lazy
+from django.views.generic import DeleteView, FormView
 
 from retro_cars.review.forms import ReviewForm
 from retro_cars.review.models import Review
 
 
-class ReviewView(FormView):
+class ReviewView(LoginRequiredMixin, FormView):
     template_name = 'reviews/reviews.html'
     form_class = ReviewForm
     success_url = reverse_lazy('review page')
@@ -27,17 +28,23 @@ class DeleteReviewView(DeleteView):
     template_name = 'reviews/reviews.html'
     model = Review
     success_url = reverse_lazy('review page')
+    login_url = reverse_lazy('profile login')
 
     def get_object(self, queryset=None):
-        # Get the review object to be deleted
         obj = super().get_object(queryset=queryset)
-
         return obj
 
-    def post(self, request, *args, **kwargs):
-        # Call the delete() method to delete the review
+    def dispatch(self, request, *args, **kwargs):
         self.object = self.get_object()
-        self.object.delete()
 
-        # Redirect to the success_url after the deletion
+        if self.object.user == self.request.user:
+            return super().dispatch(request, *args, **kwargs)
+        else:
+            return self.handle_no_permission()
+
+    def handle_no_permission(self):
+        return HttpResponseRedirect(self.login_url)
+
+    def post(self, request, *args, **kwargs):
+        self.object.delete()
         return HttpResponseRedirect(self.get_success_url())
