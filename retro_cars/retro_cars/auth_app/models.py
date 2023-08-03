@@ -20,12 +20,13 @@ class Gender(ChoicesMixin, Enum):
 
 
 class AppUser(AbstractUser):
+    FIRST_AND_LAST_NAME_MAX_LENGTH = 50
     email = models.EmailField(
         unique=True
     )
 
     first_name = models.CharField(
-        max_length=50,
+        max_length=FIRST_AND_LAST_NAME_MAX_LENGTH,
         blank=True,
         null=True,
         validators=[
@@ -35,7 +36,7 @@ class AppUser(AbstractUser):
     )
 
     last_name = models.CharField(
-        max_length=50,
+        max_length=FIRST_AND_LAST_NAME_MAX_LENGTH,
         blank=True,
         null=True,
         validators=[
@@ -60,5 +61,3 @@ class AppUser(AbstractUser):
         return result
 
 
-# class CustomGroup(Group):
-#     pass
