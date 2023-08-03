@@ -2,24 +2,52 @@
 File Name: responsive.css 
 ---------------------------------------------------------------------*/
 
+@media (min-width: 1501px) and (max-width: 1750px){
+    .login-box{
+        margin-left: -20px;
+    }
+}
+
 @media (min-width: 1343px) and (max-width: 1500px) {
-   
+
     #banner1 .carousel-control-prev {
        right: 10%;
+    }
+    .login-box{
+        margin-left: -40px;
     }
 
 }
 
 @media (min-width: 1200px) and (max-width: 1342px) {
+        .login-box{
+        margin-left: -60px;
+    }
    
     .full_bg {
         height: 100%;
     }
      .latest .read_more {top: 19%;}
-  
+
+     .header-area .d_flex{
+         display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        /*justify-content: center;*/
+     }
+
+     .site-navbar ul li a{
+         font-size: 14px;
+     }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
+        .r_flex textarea{
+        width: 80%;
+    }
+        .login-box{
+        margin-left: -80px;
+    }
     .logo_midle::before {right: 9px;}
     .full_bg {
         height: 100%;
@@ -30,15 +58,49 @@ File Name: responsive.css
     .owl-prev {left: 39%;}
     .titlepage h2 {font-size: 35px;}
     ul.top_infomation li {font-size: 15px;}
+
+         .header-area .navbar-area{
+         display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+     }
+             .nostrud p {
+        padding: 5px 0 60px 0;
+    color: #0f100d;
+    line-height: 23px;
+    font-weight: normal;
+    text-align: center;
+
+    }
+}
+@media (max-width: 858px){
+         .header-area .navbar-area ul>li>a{
+            font-size: 14px;
+     }
 }
 
 
 @media (min-width: 768px) and (max-width: 991px) {
+    .r_flex textarea{
+        width: 60%;
+    }
    .left, .right {display: none;}
    .site-navbar ul li {padding-right: 32px;}
    .logo_midle::before {right: 2px;}
     .full_bg {
         height: 100%; 
+    }
+    .nostrud p {
+        padding: 5px 0 60px 0;
+    color: #0f100d;
+    line-height: 18px;
+    font-weight: normal;
+    text-align: center;
+
+    }
+        .login-box{
+        margin-left: -100px;
     }
     
   
@@ -47,7 +109,7 @@ File Name: responsive.css
         line-height: 53px; padding-bottom: 40px;
     }
     
- .about {margin: 0 10px; padding: 80px 20px; margin-top: -90px;}
+ .about {margin: 0 10px; padding: 80px 20px; margin-top: 50px;}
 
  .titlepage h2 {font-size: 33px; line-height: 40px;}
 .about_img {padding-right: 0; padding-left: 0;}
@@ -66,11 +128,27 @@ File Name: responsive.css
     .di_no {
         display: none !important;
     }
+         .header-area .navbar-area{
+         display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+     }
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
+               .car-create p label{
+        font-size: 14px;
+                width: 90%;
+    }
+        .r_flex textarea{
+        width: 40%;
+    }
+        .login-box{
+        margin-left: -120px;
+    }
     .header-area {
-    padding: 27px 16px;}
+    padding: 16px 16px;}
      .left, .right {display: none;}
      .logo_sm {
     display: inherit;
@@ -99,7 +177,7 @@ File Name: responsive.css
         padding-bottom: 29px;
 padding-top: 42px;
     }
-  .about {margin: 0 10px; padding: 80px 20px; margin-top: -90px;}
+  .about {margin: 0 10px; padding: 80px 20px; margin-top: 30px;}
     .about_img, .coronata_img {
       padding-left: 0;
       padding-right: 0;
@@ -172,10 +250,77 @@ padding-top: 42px;
         padding-bottom: 25px;
         overflow: visible;
     }
+        .about .col-md-5{
+        margin-top: -150px;
+    }
+
+     .about .titlepage {
+         padding-bottom: 0;
+         text-align: center;
+     }
+     .edit-user div>input{
+         width: 80%;
+     }
     /* navbar css for mobile end */
 }
 
 @media (max-width: 575px) {
+            .car-create p label{
+        font-size: 12px;
+                width: 90%;
+    }
+        .r_flex textarea{
+        width: 60%;
+    }
+    .nostrud a{
+        width: 50%;
+        font-size: 12px;
+    }
+    #review-head{
+        font-size: 16px;
+    }
+    .review-text{
+        font-size: 14px;
+    }
+         .edit-user div>input{
+         width: 80%;
+     }
+    .r_flex{
+        display: inline-block;
+        width: 50%;
+        margin-left: 130px;
+    }
+    .r_flex h3{
+        font-size: 12px;
+
+    }
+    .r_flex button{
+        width: 70%;
+    }
+        .login-box{
+        margin-left: -100px;
+    }
+    .login{
+        width: 180px;
+    }
+    .login label{
+        font-size: 12px;
+    }
+    .login input{
+        width: 90%;
+    }
+        .nostrud p {
+        padding: 5px 0 60px 0;
+    color: #0f100d;
+    line-height: 14px;
+    font-weight: normal;
+    text-align: center;
+
+    }
+    .about .titlepage {
+    padding-bottom: 0;
+    text-align: center;}
+
      .header-area {
     padding: 27px 16px;}
      .left, .right {display: none;}
@@ -220,8 +365,12 @@ padding-top: 42px;
     padding: 80px 10px;
     position: relative;
     margin: 0px;
-    margin-top: -70px;
+    margin-top: 20px;
 }
+
+    .about .col-md-5{
+        margin-top: -150px;
+    }
    .latest {
     max-width: 425px;
     margin: 0 auto;
@@ -251,6 +400,7 @@ line-height: 25px;}
 .titlepage h2 {
 font-size: 25px;
 line-height: 30px;
+    margin-left: 40px;
 }
    
     .d_none {
@@ -299,5 +449,20 @@ line-height: 30px;
         padding-bottom: 25px;
         overflow: visible;
        
+    }
+
+}
+
+@media (max-width: 220px) {
+            .r_flex textarea{
+        width: 50%;
+    }
+
+    #review-head {
+        font-size: 12px;
+    }
+
+    .review-text {
+        font-size: 10px;
     }
 }
