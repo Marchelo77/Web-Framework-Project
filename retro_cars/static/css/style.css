@@ -1686,3 +1686,7 @@ padding-bottom: 40px;}
     justify-content: space-evenly;
 }
 
+.my-row{
+    margin-right: -15px;
+    margin-left: 5%;
+}
