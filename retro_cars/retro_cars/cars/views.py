@@ -1,4 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import Http404
+from django.shortcuts import redirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView
 
@@ -42,7 +44,7 @@ class CarCreateView(LoginRequiredMixin, CreateView):
         return super().form_invalid(form)
 
 
-class EditCarView(UpdateView):
+class EditCarView(LoginRequiredMixin, UpdateView):
     model = RetroCar
     form_class = CarEditForm
     template_name = 'cars/car-edit.html'
@@ -52,8 +54,34 @@ class EditCarView(UpdateView):
             'pk': self.object.pk
         })
 
+    def dispatch(self, request, *args, **kwargs):
+        self.object = self.get_object()
 
-class DeleteCarView(DeleteView):
+        if not request.user.is_authenticated:
+
+            return redirect(f'{reverse("profile login")}?next={reverse("car edit", kwargs={"pk": self.object.pk})}')
+
+        if request.user != self.object.user:
+
+            return redirect('car details', pk=self.object.pk)
+
+        return super().dispatch(request, *args, **kwargs)
+
+
+class DeleteCarView(LoginRequiredMixin, DeleteView):
     model = RetroCar
     template_name = 'cars/car-delete.html'
     success_url = reverse_lazy('car page')
+
+    def dispatch(self, request, *args, **kwargs):
+        self.object = self.get_object()
+
+        if not request.user.is_authenticated:
+
+            return redirect(f'{reverse("profile login")}?next={reverse("car edit", kwargs={"pk": self.object.pk})}')
+
+        if request.user != self.object.user:
+
+            return redirect('car details', pk=self.object.pk)
+
+        return super().dispatch(request, *args, **kwargs)
