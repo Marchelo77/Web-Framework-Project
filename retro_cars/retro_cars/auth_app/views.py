@@ -1,7 +1,9 @@
 from django.http import HttpResponseRedirect
+from django.shortcuts import redirect
 from django.urls import reverse_lazy, reverse
 from django.views import generic as views
 from django.contrib.auth import views as auth_views, login, get_user_model
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from retro_cars.auth_app.forms import RegisterUserForm, LoginUserForm, AppUserEditForm
 
@@ -18,9 +20,19 @@ class OnlyAnonymousUserMixin:
         return HttpResponseRedirect(reverse('home_page'))
 
 
-class ProfileDetailsView(views.DetailView):
+class ProfileDetailsView(LoginRequiredMixin, views.DetailView):
     template_name = 'profile/profile.html'
     model = UserModel
+
+    def get(self, request, *args, **kwargs):
+        self.object = self.get_object()
+
+        if not request.user.is_authenticated or request.user != self.object:
+
+            return redirect(reverse('profile page', kwargs={'pk': request.user.pk}))
+
+        context = self.get_context_data(object=self.object)
+        return self.render_to_response(context)
 
 
 class RegisterUserView(OnlyAnonymousUserMixin, views.CreateView):
@@ -62,7 +74,7 @@ class LogoutUserView(auth_views.LogoutView):
     pass
 
 
-class ProfileEditView(views.UpdateView):
+class ProfileEditView(LoginRequiredMixin, views.UpdateView):
     model = UserModel
     form_class = AppUserEditForm
     template_name = 'profile/profile-edit.html'
@@ -70,8 +82,28 @@ class ProfileEditView(views.UpdateView):
     def get_success_url(self):
         return reverse_lazy('profile page', kwargs={'pk': self.object.pk})
 
+    def get(self, request, *args, **kwargs):
+        self.object = self.get_object()
 
-class ProfileDeleteView(views.DeleteView):
+        if not request.user.is_authenticated or request.user != self.object:
+
+            return redirect(reverse('profile edit', kwargs={'pk': request.user.pk}))
+
+        context = self.get_context_data(object=self.object)
+        return self.render_to_response(context)
+
+
+class ProfileDeleteView(LoginRequiredMixin, views.DeleteView):
     model = UserModel
     template_name = 'profile/profile-delete.html'
     success_url = reverse_lazy('home_page')
+
+    def get(self, request, *args, **kwargs):
+        self.object = self.get_object()
+
+        if not request.user.is_authenticated or request.user != self.object:
+
+            return redirect(reverse('profile delete', kwargs={'pk': request.user.pk}))
+
+        context = self.get_context_data(object=self.object)
+        return self.render_to_response(context)
