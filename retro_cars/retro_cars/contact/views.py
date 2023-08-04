@@ -1,22 +1,37 @@
+from django.conf import settings
 from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail
 from django.shortcuts import render
+
+from retro_cars.contact.forms import ContactForm
 
 
 @login_required
 def contact_page(request):
-    user = request.user
-    user_full_name = f'{user.first_name} {user.last_name}'
-    user_email = user.email
-
-    if user.first_name is None and user.last_name is None:
-        user_full_name = user.username
-    elif user.first_name is None:
-        user_full_name = user.last_name
-    elif user.last_name is None:
-        user_full_name = user.first_name
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        text = [
+            f'Hello {request.user.username}',
+            'Thank you for contacting us.',
+            'We have received your message and will get back to you soon.',
+        ]
+        if form.is_valid():
+            send_mail(
+                subject='Hello',
+                message='\n'.join(text),
+                from_email=settings.EMAIL_HOST_USER,
+                recipient_list=(request.user.email,),
+            )
+            return render(request, 'contacts/contacted.html')
+    else:
+        form = ContactForm()
 
     context = {
-        'user_full_name': user_full_name,
-        'user_email': user_email,
+        'form': form
     }
     return render(request, 'contacts/contact.html', context)
+
+
+def contacted_page(request):
+    return render(request, 'contacts/contacted.html')
+
