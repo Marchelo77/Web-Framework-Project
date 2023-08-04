@@ -16,17 +16,21 @@
                   <form id="request" class="main_form" method="post" action="{% url 'contact page' %}">
                       {% csrf_token %}
                      <div class="row">
-                        <div class="col-md-12 ">
-                           <input class="contactus" placeholder="Full Name" type="type" value="{{ user_full_name }}" name=" Name">
+                        <div class="col-md-12">
+                            {{ form.full_name.errors }}
+                           {{ form.full_name }}
                         </div>
                         <div class="col-md-12">
-                           <input class="contactus" placeholder="Phone" type="type" name="Phone Number">
+                            {{ form.phone_number.errors }}
+                           {{ form.phone_number }}
                         </div>
                         <div class="col-md-12">
-                           <input class="contactus" placeholder="Email" type="type" value="{{ user_email }}" name="Email">
+                            {{ form.email.errors }}
+                           {{ form.email }}
                         </div>
                         <div class="col-md-12">
-                           <textarea class="textarea" placeholder="Message" type="type" Message="Name"></textarea>
+                            {{ form.message.errors }}
+                           {{ form.message }}
                         </div>
                         <div class="col-md-12">
                            <button type="submit" class="send_btn">Send Now</button>
