@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="contact">
+         <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                     <div class="titlepage text_align_left">
+                         <div>
+                         <h2 class="contact-message">Hello {{ request.user.username }}</h2>
+                         </div>
+                         <div>
+                        <h2 class="contact-message">Thank you for contacting us.</h2>
+                         </div>
+                         <div>
+                        <h2 class="contact-message">We have received your message and will get back to you soon.</h2>
+                         </div>
+                     </div>
+                  </div>
+            </div>
+         </div>
+      </div>
+{% endblock %}
