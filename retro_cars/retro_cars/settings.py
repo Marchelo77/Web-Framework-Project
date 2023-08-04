@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'retro_cars.auth_app',
+    'retro_cars.auth_app.apps.AuthAppConfig',
     'retro_cars.about',
     'retro_cars.gallery',
     'retro_cars.contact',
@@ -146,3 +146,10 @@ AUTH_USER_MODEL = 'auth_app.AppUser'
 LOGIN_URL = reverse_lazy('profile login')
 LOGIN_REDIRECT_URL = reverse_lazy('home_page')
 LOGOUT_REDIRECT_URL = reverse_lazy('home_page')
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'marchelodemoralevdemo@gmail.com'
+EMAIL_HOST_PASSWORD = 'fxbufrngjsiafbwm'
